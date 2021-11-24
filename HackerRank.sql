@@ -19,3 +19,25 @@ SELECT TOP 1
        LEN(FirstName) AS [QUANTIDADE DE LETRAS]
   FROM PERSON.Person
   ORDER BY LEN(FirstName) DESC;    
+
+--RETORNA A LISTA DE FIRSTNAME ONDE O FIRSTNAME COMEÇA COM AEIOU
+SELECT TOP 50
+       FirstName
+  FROM Person.Person
+WHERE FirstName LIKE '[aeiou]%'
+--retorna a lista de firstname onde o firstname termina com aeiou
+SELECT TOP 50
+       FirstName
+  FROM Person.Person
+WHERE FirstName LIKE '%[aeiou]'
+--RETORNA A LISTA DE FIRSTNAME ONDE O FIRSTNAME COMEÇA E TERMINA COM AEIOU
+SELECT TOP 50
+       FirstName
+  FROM Person.Person
+ WHERE FirstName LIKE '[aeiou]%'
+  AND FirstName LIKE '%[aeiou]'
+--RETORNA A LISTA DE FIRSTNAME ONDE FIRSTNAME NÃO COMEÇA COM AEIOU, PARA INVERTE BASTA LEVAR O % PARA FRENTE
+SELECT TOP 50
+       FirstName
+  FROM Person.Person
+ WHERE FirstName LIKE '[^aeiou]%'
