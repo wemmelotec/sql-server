@@ -41,3 +41,14 @@ SELECT TOP 50
        FirstName
   FROM Person.Person
  WHERE FirstName LIKE '[^aeiou]%'
+/*
+SELECT DISTINCT CITY FROM STATION WHERE CITY NOT LIKE '[aeiou]%' AND CITY NOT LIKE '%[aeiou]';
+
+SELECT NAME FROM STUDENTS WHERE MARKS > 75 ORDER BY RIGHT(NAME, 3), ID ASC;
+
+*/
+
+SELECT RIGHT(FirstName, 5) AS 'First Name'  
+FROM Person.Person  
+WHERE BusinessEntityID < 5  
+ORDER BY FirstName 
