@@ -52,3 +52,30 @@ SELECT RIGHT(FirstName, 5) AS 'First Name'
 FROM Person.Person  
 WHERE BusinessEntityID < 5  
 ORDER BY FirstName 
+
+--VERIFICAR NA TABELA SE SÃO TRINAGULOS APRESENTAR OS SEUS TIPO
+SELECT CASE             
+            WHEN A + B > C AND B + C > A AND A + C > B THEN
+                CASE 
+                    WHEN A = B AND B = C THEN 'Equilateral'
+                    WHEN A = B OR B = C OR A = C THEN 'Isosceles'
+                    ELSE 'Scalene'
+                END
+            ELSE 'Not A Triangle'
+        END
+FROM TRIANGLES;
+
+--
+SELECT concat(NAME, 
+              CASE 
+              WHEN occupation = "Doctor" THEN "(D)" 
+              WHEN occupation = "Professor" THEN "(P)" 
+              WHEN occupation = "Singer" THEN "(S)" 
+              WHEN occupation = "Actor" THEN "(A)" END)
+ FROM OCCUPATIONS 
+ORDER BY NAME;
+
+SELECT "There are a total of", COUNT(OCCUPATION), concat(LOWER(OCCUPATION),"s.") 
+  FROM OCCUPATIONS
+ GROUP BY OCCUPATION
+ ORDER BY COUNT(OCCUPATION) ASC, OCCUPATION ASC;
